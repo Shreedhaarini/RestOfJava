@@ -3,10 +3,10 @@ import java.awt.Color;
 import graphics.Canvas;
 
 public class Program {
-    // Canvas GUI instance providing the drawing area on which to plot the functions
-    private static Canvas canvas;
+	// Canvas GUI instance providing the drawing area on which to plot the functions
+	private static Canvas canvas;
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
         
         // Create the canvas instance, set its range to x:[-360, 360] and y:[-240, 240] then 
         // open it on the screen. Use canvas.plot(pX, pY) to plot a point at the (pX, pY) coords
@@ -17,9 +17,11 @@ public class Program {
         // Draw a short red diagonal on the canvas
         canvas.pause();
         canvas.setColor(Color.red);
-        for (int i = 0; i < 100; i++) {
-            canvas.plot(i, i);
+        GetY y = (x) -> { return (int) (200 * Math.sin(Math.PI* x / 360)); };
+        for (int x = -360; x < 360; x++) {
+            canvas.plot(x, calcY(x));
         }
+
 
         // Pause and close the canvas then terminate the program.
         canvas.pause();
